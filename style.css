@@ -1,0 +1,84 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(88, 126, 252);
+    background-image: url('https://image.freepik.com/free-photo/colorful-kids-toys-frame-blue-background-top-view-copy-space_40163-47.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+#board {
+    padding: 10px;
+    width: 290px;
+    background: rgb(158, 173, 241);
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: background 300ms;
+
+}
+
+
+#board.correct {
+    background-color: rgb(74, 190, 146);
+    pointer-events: none;
+}
+
+#board.wrong {
+    background-color: rgb(226, 98, 59);
+    pointer-events: none;
+}
+
+#board li {
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    margin: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 67px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: cornsilk;
+
+
+}
+
+#board li::selection {
+    background: transparent;
+}
+
+li.play-sound {
+    flex-grow: 0.9;
+    background-image: url("data:image/svg+xml,%0A%3Csvg id='Capa_1' enable-background='new 0 0 498.313 498.313' height='auto' viewBox='0 0 498.313 498.313' width='50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath d='m432.253 119.51h-224.781c-21.337 0-38.634 17.297-38.634 38.634v275.747h66.163v-215.137h170.63v146.028h66.163l-.907-206.807c-.094-21.271-17.363-38.465-38.634-38.465z' fill='%23a183e2'/%3E%3Cg fill='%239762e2'%3E%3Cpath d='m235.001 436.508v-217.754l-66.163.317v189.653z'/%3E%3Cpath d='m470.887 157.975c-.093-21.271-17.363-38.465-38.634-38.465h-60.703c18.787 0 34.04 20.18 34.123 39.801l-.042 190.772v14.699h66.163z'/%3E%3C/g%3E%3Ccircle cx='171.449' cy='434.762' fill='%23a183e2' r='63.551'/%3E%3Cpath d='m171.45 371.211c-2.915 0-5.778.214-8.588.594 22.658 3.593 39.98 23.21 39.98 46.878 0 26.218-21.254 47.472-47.472 47.472-23.668 0-43.285-17.323-46.878-39.98-.38 2.811-.594 5.673-.594 8.588 0 35.098 28.453 63.551 63.551 63.551s63.551-28.453 63.551-63.551c.001-35.1-28.452-63.552-63.55-63.552z' fill='%239762e2'/%3E%3Ccircle cx='408.243' cy='360.656' fill='%23a183e2' r='63.551'/%3E%3Cpath d='m408.243 297.105c-3.148 0-6.24.237-9.266.68 21.874 3.744 38.525 22.784 38.525 45.725 0 25.629-20.776 46.405-46.405 46.405-22.941 0-41.982-16.652-45.725-38.526-.442 3.026-.68 6.118-.68 9.266 0 35.098 28.453 63.551 63.551 63.551s63.551-28.453 63.551-63.551c0-35.097-28.453-63.55-63.551-63.55z' fill='%239762e2'/%3E%3Cg%3E%3Cpath d='m283.178 175.353c-8.46 0-16.98-.088-25.861-.266-5.522-.11-9.909-4.676-9.799-10.197.11-5.523 4.708-9.92 10.197-9.799 17.489.349 33.554.349 50.556 0 5.532-.143 10.09 4.271 10.203 9.793.113 5.521-4.272 10.09-9.793 10.203-8.64.178-17.041.266-25.503.266z' fill='%23fff'/%3E%3C/g%3E%3Cg%3E%3Cpath d='m226.046 175.09h-11.543c-5.523 0-10-4.477-10-10s4.477-10 10-10h11.543c5.523 0 10 4.477 10 10s-4.477 10-10 10z' fill='%23fff'/%3E%3C/g%3E%3Cpath d='m137.172 2.447 8.214 23.098c.352.989 1.048 1.773 1.927 2.168l20.521 9.246c2.899 1.306 2.899 5.925 0 7.232l-20.521 9.246c-.879.396-1.575 1.18-1.927 2.168l-8.214 23.098c-1.161 3.263-5.265 3.263-6.425 0l-8.214-23.098c-.352-.989-1.048-1.773-1.927-2.168l-20.521-9.246c-2.899-1.306-2.899-5.925 0-7.232l20.521-9.246c.879-.396 1.575-1.18 1.927-2.168l8.214-23.098c1.161-3.263 5.265-3.263 6.425 0z' fill='%23cab4ef'/%3E%3Cpath d='m55.643 155.019 6.093 17.133c.261.734.777 1.315 1.429 1.609l15.222 6.858c2.151.969 2.151 4.395 0 5.364l-15.222 6.858c-.652.294-1.168.875-1.429 1.609l-6.093 17.133c-.861 2.421-3.905 2.421-4.766 0l-6.093-17.133c-.261-.734-.777-1.315-1.429-1.609l-15.222-6.858c-2.15-.969-2.15-4.395 0-5.364l15.222-6.858c.652-.294 1.168-.875 1.429-1.609l6.093-17.133c.861-2.421 3.905-2.421 4.766 0z' fill='%23cab4ef'/%3E%3Cg fill='%23a183e2'%3E%3Cellipse cx='264.016' cy='43.634' rx='17.937' ry='17.937' transform='matrix(.221 -.975 .975 .221 163.106 291.476)'/%3E%3Ccircle cx='35.728' cy='117.701' r='7.737'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+select {
+    font-weight: bold;
+    outline: none;
+}
+
+select option {
+    font-weight: bold;
+}
+
+
+/* select::selection {
+    background: pink;
+    color: black;
+  }  */
+
